@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
     #API definition 
-    namespace :api, defaults { format: :json }  do
+    namespace :api, 
+	      defaults { format: :json }, 
+	      constraints: { subdomain: 'api' }, 
+	      path: '/' do
        # Directs /admin/products/* to Admin::ProductsController
        # (app/controllers/admin/products_controller.rb)
     end
