@@ -32,6 +32,9 @@ gem 'active_model_serializers', '~> 0.9.3'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# Use Passenger as the app sever
+gem 'passenger'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-    namespace :api do
+    #API definition 
+    namespace :api, defaults { format: :json }  do
        # Directs /admin/products/* to Admin::ProductsController
        # (app/controllers/admin/products_controller.rb)
     end
