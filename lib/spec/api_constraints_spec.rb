@@ -1,28 +1,21 @@
 require 'spec_helper'
+require_relative '../../lib/api_constraints'
 
-  describe ApiConstraints do
-
+describe ApiConstraints do
     let(:api_constraints_v1) { ApiConstraints.new(version: 1) }
-    let(:api_constraints_v2) { ApiConstraints.new(version: 2, default: true) }
+      let(:api_constraints_v2) { ApiConstraints.new(version: 2, default: true) }
 
-    # We are initialising the class with an options hash, which will contain the version of the api,
-    # and a default value for handling the default version.
-    describe "matches?" do
+        describe "matches?" do
 
-      it "returns true when the version matches the 'Accept' header" do
+              it "returns true when the version matches the 'Accept' header" do
+                      request = double(host: 'api.apionrails.dev',
+                                                              headers: { "Accept" => "application/vnd.apionrails.v1"})
+                            expect(api_constraints_v1.matches?(request)).to eq true
+              end
 
-        request = double(host: 'api.marketplace.dev',
-                         headers: {"Accept" => "application/vnd.marketplace.v1"})
-        api_constraints_v1.matches?(request).should be_true
-
-      end
-
-      it "returns the default version when 'defauit' option is specified" do
-
-        request = double(host: 'api.marketplace.dev')
-        api_constraints_v2.matches?(request).should be_true
-
-      end
-    end
-  end
-
+              it "returns the default option when 'default' option is specified" do
+                      request = double(host: 'api.apionrails.dev')
+                            expect(api_constraints_v2.matches?(request)).to eq true
+                               end
+                    end
+end

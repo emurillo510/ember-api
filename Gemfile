@@ -57,4 +57,7 @@ group :development, :test do
   # Faster Faker, generates dummy data.
   gem 'ffaker', '~> 1.32.1'
 
+  # Shoulda matchers helps us write better tests 
+  gem "shoulda-matchers"
+
 end
