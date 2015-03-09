@@ -50,6 +50,8 @@ group :development, :test do
 
   # factory_girl provides a framework and DSL for defining and using factories - less error-prone, more explicit, and all-around easier to work with than fixtures.
   gem 'factory_girl_rails', '~> 4.5.0'
- 
-end
 
+  # Faster Faker, generates dummy data.
+  gem 'ffaker', '~> 1.32.1'
+
+end
